@@ -4,10 +4,12 @@ body {
   }
 
 #imagen{
-    width: 20%;
-    object-fit: cover;
-    border: black 20px solid;
-    border-image-source: url("https://i.pinimg.com/originals/ad/59/d3/ad59d3f5ff9a3764a133b77de9b49743.png");
-    border-image-slice: 1000;
-    text-align: justify;
+    
+}
+img{
+  width: 20%;
+  height: 20%;
+  object-fit: cover;
+  border-radius: 50%;
+
 }
