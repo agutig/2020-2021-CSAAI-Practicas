@@ -6,6 +6,10 @@ body {
     color:rgb(255, 255, 255);
   }
 
+#bloque_general{
+  justify-content: center;
+}
+
 h1{
   color: rgb(255, 255, 255);
   text-align: center;
