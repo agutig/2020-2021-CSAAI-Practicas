@@ -28,28 +28,42 @@ img{
   border: rgb(0, 0, 0) 5px solid;
   text-align: center;
   float:left;
-  width:50%;
-  
+  width: 600px;
+  height: 200px;
 }
 
 #caja_estudios{
   border: rgb(0, 0, 0) 5px solid;
   text-align: center;
-  float:right;
-  width:50%;
+  float:left;
+  width: 600px;
+  height: 200px;
+
 }
 
 #caja_experiencia{
   border: rgb(0, 0, 0) 5px solid;
   text-align: center;
+  float:left;
+  width: 600px;
+  height: 200px;
+ 
 }
 
 #caja_idiomas{
   border: rgb(0, 0, 0) 5px solid;
   text-align: center;
+  float:left;
+  width: 600px;
+  height: 200px;
+
 }
 
 #caja_otros{
   border: rgb(0, 0, 0) 5px solid;
   text-align: center;
+  width: 99%;
+  height: 200px;
+  float:left;
+
 }
