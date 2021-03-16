@@ -3,6 +3,13 @@ body {
     color:black;
   }
 
+h1{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 400%;
+
+}
+ 
 
 img{
   width:300px;
@@ -11,25 +18,38 @@ img{
   object-fit: cover;
   border-radius: 50%;
   border:10px solid rgb(0, 0, 0);
+  display:block;
+  margin:auto;
+
 
 }
 
 #caja_nombre{
   border: rgb(0, 0, 0) 5px solid;
+  text-align: center;
+  float:left;
+  width:50%;
+  
 }
 
 #caja_estudios{
   border: rgb(0, 0, 0) 5px solid;
+  text-align: center;
+  float:right;
+  width:50%;
 }
 
 #caja_experiencia{
   border: rgb(0, 0, 0) 5px solid;
+  text-align: center;
 }
 
 #caja_idiomas{
   border: rgb(0, 0, 0) 5px solid;
+  text-align: center;
 }
 
 #caja_otros{
   border: rgb(0, 0, 0) 5px solid;
+  text-align: center;
 }
