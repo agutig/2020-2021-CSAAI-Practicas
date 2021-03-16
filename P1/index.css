@@ -10,5 +10,26 @@ img{
   border-radius:150px;
   object-fit: cover;
   border-radius: 50%;
+  border:10px solid rgb(0, 0, 0);
 
+}
+
+#caja_nombre{
+  border: rgb(0, 0, 0) 5px solid;
+}
+
+#caja_estudios{
+  border: rgb(0, 0, 0) 5px solid;
+}
+
+#caja_experiencia{
+  border: rgb(0, 0, 0) 5px solid;
+}
+
+#caja_idiomas{
+  border: rgb(0, 0, 0) 5px solid;
+}
+
+#caja_otros{
+  border: rgb(0, 0, 0) 5px solid;
 }
