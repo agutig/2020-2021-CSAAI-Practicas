@@ -16,7 +16,7 @@ p#display{
 div#numeros{
     float: left;
     width: 280px;
-    height: 350px;
+    height: 360px;
     border: 7px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
     margin: auto;
@@ -28,7 +28,7 @@ div#operadores{
     float: right;
     float:inline-end;
     width: 190px;
-    height: 350px;
+    height: 360px;
     border: 7px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
     margin: auto;
@@ -37,8 +37,8 @@ div#operadores{
 }
 
 div#calculadora{
-    width: 500px;
-    height: 500px;
+    width: 510px;
+    height: 510px;
     border: 8px solid rgb(0, 0, 0);
     background: rgb(0, 0, 0);
     margin:auto;
@@ -47,8 +47,20 @@ div#calculadora{
 
 
 button{
-    width: 85px;
-    height: 85px;
+    font-size: 250%;
+    color: rgb(255, 255, 255);
+    background-color: gray;
+    width: 88px;
+    height: 82px;
     margin: auto;
+    margin-top: 4px;
     text-align: center;
+    border-radius: 20px;
+}
+
+button:hover{
+    background-color: rgb(255, 145, 1);
+    color: black;
+    width: 94px;
+    height: 88px;
 }
