@@ -1,40 +1,53 @@
 div#resultado{
     margin: auto;
     padding: 20px;
+    height: 80px;
     border: 8px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
 }
 
+p#display{
+    color: black;
+    text-align: right;
+    size: 10px;
+}
+
 div#numeros{
     float: left;
-    width: 200px;
-    height: 200px;
-    padding: 20px;
-    border: 8px solid rgb(0, 0, 0);
+    width: 280px;
+    height: 350px;
+    border: 7px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
+    margin: auto;
+    text-align: center;
 
     
 }
 div#operadores{
     float: right;
     float:inline-end;
-    width: 200px;
-    height: 200px;
-    border: 8px solid rgb(0, 0, 0);
+    width: 190px;
+    height: 350px;
+    border: 7px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
+    margin: auto;
+    text-align: center;
     
 }
 
-div#botones{
+div#calculadora{
     width: 500px;
-    height: 800px;
-    border: 8px solid rgb(76, 0, 255);
-    background: rgb(209, 0, 0);
+    height: 500px;
+    border: 8px solid rgb(0, 0, 0);
+    background: rgb(0, 0, 0);
     margin:auto;
+    
 }
 
 
 button{
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
+    margin: auto;
+    text-align: center;
 }
