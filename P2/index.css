@@ -61,6 +61,9 @@ button{
 button:hover{
     background-color: rgb(255, 145, 1);
     color: black;
-    width: 94px;
-    height: 88px;
+    font-size: 300%;
+}
+
+button span{
+    
 }
