@@ -10,6 +10,7 @@ p#display{
     color: black;
     text-align: right;
     size: 10px;
+    font-size: 200%;
 }
 
 div#numeros{
