@@ -1,26 +1,27 @@
-#numeros{
+div#numeros{
     width: 200px;
     height: 200px;
     padding: 20px;
     border: 8px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
-    box-sizing: border-box;
+
+    
 }
-#operadores{
+div#operadores{
+    float: right;
     width: 200px;
     height: 200px;
     border: 8px solid rgb(0, 0, 0);
     background: rgb(255, 255, 255);
-    box-sizing: border-box;
-    position: right;
+    
 }
 
-#botones{
-    
+div#botones{
     width: 500px;
     height: 800px;
     border: 8px solid rgb(76, 0, 255);
     background: rgb(209, 0, 0);
+    margin:auto;
 }
 
 
