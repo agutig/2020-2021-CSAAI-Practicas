@@ -27,11 +27,11 @@ function register_click (invalue){
     x = display.innerHTML;
     x = x + invalue
     display.innerHTML = x;
-    alert('Gracias por pinchar');
+    console.log('Gracias por pinchar');
 };
 
 gui.boton0.onclick = () => {
-    register_click(0);
+    gui.display.innerHTML = "holaa";
     };
 
 
