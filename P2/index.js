@@ -1,5 +1,6 @@
 const gui = {
-    botonExp =  document.getElementById("E"),
+    
+    botonExp = document.getElementById("E"),
     botonPunto = document.getElementById("."),
     boton0 = document.getElementById("0"),
     boton1 = document.getElementById("1"),
