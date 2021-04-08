@@ -21,4 +21,19 @@ const gui = {
     botonEQUAL = document.getElementById("="),
     display = document.getElementById("display")
 
-}
+};
+
+function register_click (invalue){
+    x = display.innerHTML;
+    x = x + invalue
+    display.innerHTML = x;
+    alert('Gracias por pinchar');
+};
+
+gui.boton0.onclick = () => {
+    register_click(0);
+    };
+
+
+let numeric_values = [];
+
