@@ -24,14 +24,9 @@ function register_click (invalue){
 
 console.log(gui.boton_numeric);
 
-function digito(value)
-{
-  console.log("Valor: " + value);
-}
-
 for (let boton of gui.boton_numeric) {
     boton.onclick = (ev) => {
-        digito(ev.target.value)
+        register_click(ev.target.value)
       }
 }
 
