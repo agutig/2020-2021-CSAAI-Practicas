@@ -2,7 +2,7 @@ const gui = {
 
     botonExp : document.getElementById("E"),
     botonPunto : document.getElementById("."),
-    boton_numeric : document.getElementById("numeric"),
+    boton_numeric : document.querySelectorAll("numeric"),
     botonDEL : document.getElementById("DEL"),
     botonAC : document.getElementById("AC"),
     botonX : document.getElementById("X"),
@@ -17,13 +17,18 @@ const gui = {
 
 function register_click (invalue){
     x = display.innerHTML;
-    x = x + invalue
+    x = x + invalue;
     display.innerHTML = x;
     console.log('Gracias por pinchar');
 };
 
-gui.boton_numeric.onclick = function(){console.log('Gracias por pinchar');
-register_click(gui.boton_numeric.innerHTML)};
 
-let numeric_values = [];
+for (var x = 0; x < boton_numeric; x++) {
+
+    boton_numeric[x].onclick = function() {
+        console.log('Gracias por pinchar');
+        register_click(gui.boton_numeric.innerHTML);
+    }
+};
+
 
