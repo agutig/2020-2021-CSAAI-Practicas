@@ -48,6 +48,12 @@ gui.botonDEL.onclick = () => {
         EstadoAnterior = 0;
         gui.warning_display.innerHTML = "";
     }
+    try {
+        eval(display.innerHTML);
+      } catch (SyntaxError) {
+        gui.warning_display.innerHTML = "";
+      }
+
 }
 
 gui.botonAC.onclick = function () {
