@@ -14,7 +14,7 @@ const gui = {
 
 
 function estado(){
-    document.getElementById("estado_display").innerHTML = ESTADO + "   " + EstadoAnterior;
+    console.log ("Estado:" + ESTADO + " Estado anterior: " + EstadoAnterior);
 }
 
 t1 = setInterval(estado,100)
@@ -46,8 +46,6 @@ gui.botonDEL.onclick = () => {
 
     let eliminar = gui.display.innerHTML.slice(-1);
     let previo = gui.display.innerHTML.slice(-2,-1);
-    console.log(eliminar);
-    console.log(previo); 
     gui.display.innerHTML = gui.display.innerHTML.slice(0,-1) ;
     if (gui.display.innerHTML.length <= 0 ){
         ESTADO = 0;
@@ -55,15 +53,20 @@ gui.botonDEL.onclick = () => {
         gui.warning_display.innerHTML = "";
     }
 
-    if (eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/" || previo == "x" || previo == "+" || previo == "-" || previo == "/"){
+    if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") && (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
+        ESTADO = ESTADO
+    }
+    else if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") || (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
         ESTADO = EstadoAnterior[EstadoAnterior.length -1];
         EstadoAnterior.pop();
     }
 
     try {
-        eval(display.innerHTML);
-      } catch (SyntaxError) {
+        let confirm = (display.innerHTML + "1").replace(/x/g , "*");
+        eval(confirm);
         gui.warning_display.innerHTML = "";
+      } catch (error) {
+          console.log(error);
       }
 
 }
@@ -71,7 +74,7 @@ gui.botonDEL.onclick = () => {
 gui.botonAC.onclick = function () {
     gui.display.innerHTML = "0";
     ESTADO = 0;
-    EstadoAnterior = [0];
+    EstadoAnterior = [];
     gui.warning_display.innerHTML = "";
 }
 

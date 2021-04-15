@@ -65,10 +65,12 @@ button:hover{
 }
 
 
-p{
-    font-size: 250%;
-    margin: auto;
-    margin-top: 4px;
+div#warningdisplay{
+    float: left;
+    width: 500px;
+    height: 50px;
     text-align: center;
-    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    font-size: 150%;
+
 }
