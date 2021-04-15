@@ -11,13 +11,6 @@ const gui = {
     warning_display : document.getElementById("warning_display")
 };
 
-
-function estado(){
-    console.log ("Ans:" + ANS);
-}
-
-t1 = setInterval(estado,100)
-
 let ESTADO = 0; /* 0= No hay nada escrito , 1= valor numerico , 2= operador , 3= segundo valor numerico
  (si se introducen mas operaciones se debe repetir el estado 2,3 )   */
 
