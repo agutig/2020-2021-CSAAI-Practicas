@@ -13,7 +13,7 @@ const gui = {
 };
 
 gui.botonDEL.onclick = function () {
-    gui.display.innerHTML.length = gui.display.innerHTML.length -1 ;
+    gui.display.innerHTML = gui.display.innerHTML.slice(0,-1) ;
 }
 
 gui.botonAC.onclick = function () {
