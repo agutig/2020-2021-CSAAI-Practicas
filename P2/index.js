@@ -1,6 +1,5 @@
 const gui = {
 
-    botonExp : document.getElementById("E"),
     botonPunto : document.getElementById("."),
     boton_numeric : document.getElementsByClassName("numeric"),
     boton_operator : document.getElementsByClassName("operator"),
@@ -14,7 +13,7 @@ const gui = {
 
 
 function estado(){
-    console.log ("Estado:" + ESTADO + " Estado anterior: " + EstadoAnterior);
+    console.log ("Ans:" + ANS);
 }
 
 t1 = setInterval(estado,100)
@@ -42,6 +41,23 @@ gui.botonEQUAL.onclick = () =>{
     }
 }
 
+gui.botonANS.onclick = () =>{
+    if (ESTADO == 0){
+        gui.display.innerHTML = "";
+        EstadoAnterior.push(ESTADO);
+        ESTADO = 1;
+        register_click(ANS)}
+    else if (ESTADO == 2){
+        EstadoAnterior.push(ESTADO);
+        ESTADO = 3;
+        register_click(ANS);
+    }
+    else {
+        register_click(ANS);
+    }
+}
+
+
 gui.botonDEL.onclick = () => {
 
     let eliminar = gui.display.innerHTML.slice(-1);
@@ -51,6 +67,7 @@ gui.botonDEL.onclick = () => {
         ESTADO = 0;
         EstadoAnterior = [];
         gui.warning_display.innerHTML = "";
+
     }
 
     if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") && (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
