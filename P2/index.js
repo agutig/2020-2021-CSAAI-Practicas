@@ -5,15 +5,20 @@ const gui = {
     boton_numeric : document.getElementsByClassName("numeric"),
     botonDEL : document.getElementById("DEL"),
     botonAC : document.getElementById("AC"),
-    botonX : document.getElementById("X"),
-    botonDIV : document.getElementById("%"),
-    botonPLUS : document.getElementById("+"),
-    botonMINUS : document.getElementById("-"),
+    boton_operator : document.getElementsByClassName("operator"),
     botonANS : document.getElementById("ANS"),
     botonEQUAL : document.getElementById("="),
     display : document.getElementById("display")
 
 };
+
+gui.botonDEL.onclick = function () {
+    gui.display.innerHTML.length = gui.display.innerHTML.length -1 ;
+}
+
+gui.botonAC.onclick = function () {
+    gui.display.innerHTML = "";
+}
 
 function register_click (invalue){
     x = display.innerHTML;
@@ -30,3 +35,8 @@ for (let boton of gui.boton_numeric) {
       }
 }
 
+for (let boton of gui.boton_operator) {
+    boton.onclick = (ev) => {
+        register_click(ev.target.value)
+      }
+}
