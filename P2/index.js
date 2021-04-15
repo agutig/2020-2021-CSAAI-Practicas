@@ -11,6 +11,15 @@ const gui = {
     warning_display : document.getElementById("warning_display")
 };
 
+
+function timer(){
+  console.log("Estado: " +  ESTADO + "anterior:" +  EstadoAnterior);
+}
+
+setInterval(timer,100);
+
+
+
 let ESTADO = 0; /* 0= No hay nada escrito , 1= valor numerico , 2= operador , 3= segundo valor numerico
  (si se introducen mas operaciones se debe repetir el estado 2,3 )   */
 
@@ -56,19 +65,22 @@ gui.botonDEL.onclick = () => {
     let eliminar = gui.display.innerHTML.slice(-1);
     let previo = gui.display.innerHTML.slice(-2,-1);
     gui.display.innerHTML = gui.display.innerHTML.slice(0,-1) ;
+
+    if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") && (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
+        ESTADO = ESTADO
+ 
+    }
+    else if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") || (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
+        ESTADO = EstadoAnterior[EstadoAnterior.length -1];
+        EstadoAnterior.pop();
+        
+    }
+
     if (gui.display.innerHTML.length <= 0 ){
         ESTADO = 0;
         EstadoAnterior = [];
         gui.warning_display.innerHTML = "";
 
-    }
-
-    if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") && (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
-        ESTADO = ESTADO
-    }
-    else if ((eliminar == "x" || eliminar == "+" || eliminar == "-" || eliminar == "/") || (previo == "x" || previo == "+" || previo == "-" || previo == "/")){
-        ESTADO = EstadoAnterior[EstadoAnterior.length -1];
-        EstadoAnterior.pop();
     }
 
     try {
