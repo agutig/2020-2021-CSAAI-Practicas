@@ -6,6 +6,12 @@ body {
     color:rgb(255, 255, 255);
   }
 
+#introduccion{
+  border: rgb(255, 255, 255) 5px solid;
+  text-align: center;
+  font-size: 150%;
+  font-style: italic;
+}
 #bloque_general{
   justify-content: center;
 }
