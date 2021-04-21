@@ -4,25 +4,37 @@ body {
     background-repeat:space;
     background-color: black;
     color:rgb(255, 255, 255);
+    margin: auto; 
   }
 
 #introduccion{
+  margin: auto; 
   border: rgb(255, 255, 255) 5px solid;
   text-align: center;
   font-size: 150%;
   font-style: italic;
+  width: 98%;
 }
 #bloque_general{
+  margin: auto; 
   justify-content: center;
+  text-align: center;
+  height: 200vh;
+  width: 100vw;
+
 }
 
 h1{
   color: rgb(255, 255, 255);
   text-align: center;
   font-size: 400%;
-
 }
- 
+
+h2{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 200%;
+}
 
 img{
   width:300px;
@@ -32,60 +44,12 @@ img{
   border-radius: 50%;
   border:10px solid rgb(255, 255, 255);
   display:block;
-  margin:auto;
-
-
+  margin:left;
 }
 
-#caja_nombre{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
-}
-
-#caja_estudios{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
-
-}
-
-#caja_experiencia{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
- 
-}
-
-#caja_idiomas{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
-
-}
-
-#caja_otros{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
-
-}
-
-#caja_contacto{
-  border: rgb(255, 255, 255) 5px solid;
-  text-align: center;
-  float:left;
-  width: 600px;
-  height: 200px;
-
+.caja{
+  margin: 0.78%; 
+  border:10px solid rgb(255, 255, 255);
+  width: 50%;
+  height: 25vh;
 }
