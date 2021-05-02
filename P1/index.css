@@ -50,14 +50,23 @@ img{
   margin:left;
 }
 
-video{
-  border: 5px solid white;
+#iron{
   margin-left: 1vw;
   margin-top: 2vw;
   float: left;
+  height: 183vh;
+  width: 45vw;
+  
+}
+
+video{
+  border: 5px solid white;
   height: 55vh;
   width: 45vw;
+  position: sticky;
+  top: 30%;
 }
+
 
 .caja{
   float: right;
