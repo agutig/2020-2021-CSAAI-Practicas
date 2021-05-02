@@ -10,7 +10,7 @@ body {
 
 #introduccion{
 
-  border: rgb(255, 255, 255) 5px solid;
+  border: rgb(255, 255, 255) 0.4vw solid;
   text-align: center;
   font-size: 2vw;
   font-style: italic;
@@ -56,10 +56,9 @@ h2{
 img{
   width:20vw;
   height:20vw;
-  border-radius:4vw;
   object-fit: cover;
   border-radius: 50%;
-  border:10px solid rgb(255, 255, 255);
+  border:0.25vw solid rgb(255, 255, 255);
   display:block;
   margin:auto;
 }
