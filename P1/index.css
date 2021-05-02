@@ -56,13 +56,13 @@ img{
   margin-left: 1vw;
   margin-top: 2vw;
   float: left;
-  height: auto;
+  height: 100vw;
   width: 44vw;
   
 }
 
 video{
-  border: 5px solid white;
+  border: 0.25vw solid white;
   height: 32.5vw;
   width: 45vw;
   position: sticky;
@@ -74,7 +74,7 @@ video{
   float: right;
   margin-right: 1vw;
   margin-top: 2vw;
-  border:5px solid rgb(255, 255, 255);
+  border:0.25vw solid rgb(255, 255, 255);
   width: 50%;
   height: 15vw;
   font-size: 1.25vw;
