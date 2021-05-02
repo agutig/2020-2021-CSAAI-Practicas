@@ -50,10 +50,26 @@ img{
   margin:left;
 }
 
+video{
+  border: 5px solid white;
+  margin-left: 1vw;
+  margin-top: 2vw;
+  float: left;
+  height: 55vh;
+  width: 45vw;
+}
+
 .caja{
-  margin-left: 47vw;
-  margin-top: 10px;
+  float: right;
+  margin-right: 1vw;
+  margin-top: 2vw;
   border:5px solid rgb(255, 255, 255);
   width: 50%;
   height: 25vh;
+  font-size: 2.5vh;
+  text-align: center;
+}
+
+#caja_otros{
+  height: 35vh;
 }
