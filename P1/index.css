@@ -9,12 +9,14 @@ body {
   }
 
 #introduccion{
-  margin: auto; 
+
   border: rgb(255, 255, 255) 5px solid;
   text-align: center;
   font-size: 150%;
   font-style: italic;
-  width: 98%;
+  width: 97.29%;
+  margin-right: 1%;
+  margin-left: 1%;
 }
 #bloque_general{
   margin: auto; 
@@ -49,8 +51,9 @@ img{
 }
 
 .caja{
-  margin: 0.78%; 
-  border:10px solid rgb(255, 255, 255);
+  margin-left: 47vw;
+  margin-top: 10px;
+  border:5px solid rgb(255, 255, 255);
   width: 50%;
   height: 25vh;
 }
