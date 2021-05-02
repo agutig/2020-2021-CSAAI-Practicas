@@ -15,10 +15,23 @@ body {
   font-size: 2vw;
   font-style: italic;
   width: 97.29%;
-  height: 20vh;
+  height: 12vw;
   margin-right: 1vw;
   margin-left: 1%;
 }
+
+
+.caja{
+  float: right;
+  margin-right: 1vw;
+  margin-top: 2vw;
+  border:0.25vw solid rgb(255, 255, 255);
+  width: 50%;
+  height: 15vw;
+  font-size: 1.25vw;
+  text-align: center;
+}
+
 #bloque_general{
   margin: auto; 
   justify-content: center;
@@ -48,7 +61,7 @@ img{
   border-radius: 50%;
   border:10px solid rgb(255, 255, 255);
   display:block;
-  margin:left;
+  margin:auto;
 }
 
 #iron{
@@ -70,16 +83,6 @@ video{
 }
 
 
-.caja{
-  float: right;
-  margin-right: 1vw;
-  margin-top: 2vw;
-  border:0.25vw solid rgb(255, 255, 255);
-  width: 50%;
-  height: 15vw;
-  font-size: 1.25vw;
-  text-align: center;
-}
 
 #caja_otros{
   height: 20vw;
