@@ -12,7 +12,7 @@ body {
 
   border: rgb(255, 255, 255) 5px solid;
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 2vw;
   font-style: italic;
   width: 97.29%;
   height: 20vh;
@@ -63,7 +63,7 @@ img{
 
 video{
   border: 5px solid white;
-  height: 524px;
+  height: 32.5vw;
   width: 45vw;
   position: sticky;
   top: 20%;
@@ -76,15 +76,15 @@ video{
   margin-top: 2vw;
   border:5px solid rgb(255, 255, 255);
   width: 50%;
-  height: 240px;
-  font-size: 2.5vh;
+  height: 15vw;
+  font-size: 1.25vw;
   text-align: center;
 }
 
 #caja_otros{
-  height: 400px;
+  height: 20vw;
 }
 
 #caja_contacto{
-  height: 300px;
+  height: 15vw;
 }
