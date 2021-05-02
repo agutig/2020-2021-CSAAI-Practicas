@@ -12,10 +12,11 @@ body {
 
   border: rgb(255, 255, 255) 5px solid;
   text-align: center;
-  font-size: 150%;
+  font-size: 3.5vh;
   font-style: italic;
   width: 97.29%;
-  margin-right: 1%;
+  height: 20vh;
+  margin-right: 1vw;
   margin-left: 1%;
 }
 #bloque_general{
@@ -51,11 +52,12 @@ img{
 }
 
 #iron{
+  margin-right: 1vw;
   margin-left: 1vw;
   margin-top: 2vw;
   float: left;
   height: 183vh;
-  width: 45vw;
+  width: 44vw;
   
 }
 
@@ -64,7 +66,7 @@ video{
   height: 55vh;
   width: 45vw;
   position: sticky;
-  top: 30%;
+  top: 20%;
 }
 
 
@@ -80,5 +82,9 @@ video{
 }
 
 #caja_otros{
-  height: 35vh;
+  height: 40vh;
+}
+
+#caja_contacto{
+  height: 30vh;
 }
