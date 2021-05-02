@@ -28,7 +28,7 @@ body {
   border:0.25vw solid rgb(255, 255, 255);
   width: 50%;
   height: 15vw;
-  font-size: 1.25vw;
+  font-size: 1.5vw;
   text-align: center;
 }
 
@@ -84,7 +84,7 @@ video{
 
 
 #caja_otros{
-  height: 20vw;
+  height: 23vw;
 }
 
 #caja_contacto{
