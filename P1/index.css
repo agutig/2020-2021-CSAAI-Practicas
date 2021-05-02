@@ -10,7 +10,7 @@ body {
 
 #introduccion{
 
-  border: rgb(35, 221, 228) 0.4vw solid;
+  border: rgb(51, 164, 168) 0.4vw solid;
   text-align: center;
   font-size: 2vw;
   font-style: italic;
@@ -25,7 +25,7 @@ body {
   float: right;
   margin-right: 1vw;
   margin-top: 2vw;
-  border:0.25vw solid rgb(35, 221, 228);
+  border:0.25vw solid rgb(51, 164, 168);
   width: 50%;
   height: 15vw;
   font-size: 1.5vw;
@@ -58,7 +58,7 @@ img{
   height:20vw;
   object-fit: cover;
   border-radius: 50%;
-  border:0.25vw solid rgb(35, 221, 228);
+  border:0.25vw solid rgb(51, 164, 168);
   display:block;
   margin:auto;
 }
@@ -74,7 +74,7 @@ img{
 }
 
 video{
-  border: 0.25vw solid rgb(35, 221, 228);
+  border: 0.25vw solid rgb(51, 164, 168);
   height: 32.5vw;
   width: 45vw;
   position: sticky;
