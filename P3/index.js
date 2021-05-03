@@ -34,10 +34,15 @@ ctx.fill();
 ctx.stroke();
 ctx.closePath();
 
+ctx.beginPath();
+ctx.fillStyle = 'black';
+ctx.font = "25px Arial";
+ctx.fillText("Puntuacion:", 30, 770);
+ctx.closePath();
 
 vida.onload = ()=> {
-    ctx.drawImage(vida,800,700);  
-    ctx.drawImage(vida,825,700);  
-    ctx.drawImage(vida,850,700); 
+    ctx.drawImage(vida,800,750);  
+    ctx.drawImage(vida,825,750);  
+    ctx.drawImage(vida,850,750); 
 };
   
