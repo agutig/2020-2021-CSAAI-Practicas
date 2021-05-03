@@ -20,12 +20,24 @@ for (var i = 0; i != 9 ; i++) {
 }
 ctx.closePath();
 
-ctx.beginPath();
-ctx.rect(450,700 , 110, 10);
-ctx.fillStyle = 'green';
-ctx.fill();
-ctx.stroke();
-ctx.closePath();
+// La barra del jugador:
+
+var bar = {
+    x: 450,
+    y: 700,
+    vx: 5,
+    vy: 2,
+    draw: function() {
+        ctx.beginPath(),
+        ctx.rect(this.x,this.y , 100, 10),
+        ctx.fillStyle = 'green',
+        ctx.fill(),
+        ctx.stroke(),
+        ctx.closePath
+    }
+};
+
+
 
 ctx.beginPath();
 ctx.arc(450, 500, 10, 0, 2 * Math.PI)
@@ -46,3 +58,22 @@ vida.onload = ()=> {
     ctx.drawImage(vida,850,750); 
 };
   
+var izquierda = document.getElementById("a");
+var derecha = document.getElementById("d");
+
+izquierda.onclick = () => {
+    bar.x = bar.x - 20;
+}
+
+derecha.onclick = () => {
+    bar.x = bar.x + 20;
+}
+
+function update() 
+{
+  
+  bar.draw();
+  requestAnimationFrame(update);
+}
+
+update();
