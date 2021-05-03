@@ -14,9 +14,18 @@ for (var i = 0; i != 9 ; i++) {
           ctx.stroke();
  }
 }
+ctx.closePath();
 
+ctx.beginPath();
 ctx.rect(450,700 , 110, 10)
-ctx.fillStyle = 'red';
+ctx.fillStyle = 'green';
+ctx.fill();
+ctx.stroke();
+ctx.closePath();
+
+ctx.beginPath();
+ctx.arc(450, 500, 10, 0, 2 * Math.PI)
+ctx.fillStyle = 'yellow';
 ctx.fill();
 ctx.stroke();
 
