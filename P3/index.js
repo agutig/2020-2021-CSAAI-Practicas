@@ -36,6 +36,8 @@ ctx.closePath();
 
 
 vida.onload = ()=> {
-    ctx.drawImage(vida,462,200);  //fichero + posicion
+    ctx.drawImage(vida,800,700);  
+    ctx.drawImage(vida,825,700);  
+    ctx.drawImage(vida,850,700); 
 };
   
