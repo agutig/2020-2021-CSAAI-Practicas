@@ -1,4 +1,8 @@
 const canvas = document.getElementById("canvas");
+var vida = document.getElementById("vida");
+vida.width = 25;
+vida.height = 50;
+
 canvas.width = 1000;
 canvas.height = 800;
 
@@ -17,7 +21,7 @@ for (var i = 0; i != 9 ; i++) {
 ctx.closePath();
 
 ctx.beginPath();
-ctx.rect(450,700 , 110, 10)
+ctx.rect(450,700 , 110, 10);
 ctx.fillStyle = 'green';
 ctx.fill();
 ctx.stroke();
@@ -28,5 +32,10 @@ ctx.arc(450, 500, 10, 0, 2 * Math.PI)
 ctx.fillStyle = 'yellow';
 ctx.fill();
 ctx.stroke();
+ctx.closePath();
 
- ctx.closePath()
+
+vida.onload = ()=> {
+    ctx.drawImage(vida,462,200);  //fichero + posicion
+};
+  
