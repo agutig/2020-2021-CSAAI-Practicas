@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
 canvas.width = 1000;
-canvas.height = 500;
+canvas.height = 800;
 
 const ctx = canvas.getContext("2d");
 ctx.beginPath()
@@ -14,5 +14,10 @@ for (var i = 0; i != 9 ; i++) {
           ctx.stroke();
  }
 }
+
+ctx.rect(450,700 , 110, 10)
+ctx.fillStyle = 'red';
+ctx.fill();
+ctx.stroke();
 
  ctx.closePath()
