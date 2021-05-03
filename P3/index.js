@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
-var vida = document.getElementById("vida");
+const vida = document.getElementById("vida");
 vida.width = 25;
-vida.height = 50;
+vida.height = 25;
 
 canvas.width = 1000;
 canvas.height = 800;
