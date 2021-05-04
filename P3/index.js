@@ -25,8 +25,7 @@ ctx.closePath();
 var bar = {
     x: 450,
     y: 700,
-    vx: 5,
-    vy: 2,
+    vx: 2,
     draw: function() {
         ctx.beginPath();
         ctx.rect(this.x,this.y , 100, 10);
@@ -41,7 +40,7 @@ var ball = {
     x: 400,
     y: 500,
     vx: 5,
-    vy: 2,
+    vy: -2,
     draw: function() {
 
         ctx.clearRect(this.x -11 ,this.y -11, 22,22);
@@ -50,7 +49,7 @@ var ball = {
             this.vx = -1  * this.vx;
           }
         
-        if (this.y <= 0 || this.y >= (canvas.height -10)) {
+        if (this.y <= 0) {
             this.vy = -1  * this.vy;
           }
 
@@ -63,7 +62,6 @@ var ball = {
         ctx.fill();
         ctx.stroke();
         ctx.closePath();       
-        
         
     }
 };
@@ -84,15 +82,24 @@ vida.onload = ()=> {
 var izquierda = document.getElementById("a");
 var derecha = document.getElementById("d");
 
-izquierda.onclick = () => {
-    ctx.clearRect(bar.x -1 , bar.y -1  , 102,12);
-    bar.x = bar.x - 20;
-}
+n = 0;
+window.onkeydown = (e) => {
+    n = n+1;
+  if (e.keyCode == 37 || e.key == "a") {
+        ctx.clearRect(bar.x -1 , bar.y -1  , 102,12);
+        bar.x = bar.x - bar.vx - n;
+   }
 
-derecha.onclick = () => {
-    ctx.clearRect(bar.x -1 , bar.y -1 , 102,12);
-    bar.x = bar.x + 20;
-}
+
+    if (e.keyCode == 39 || e.key == "d") {
+        ctx.clearRect(bar.x -1 , bar.y -1 , 102,12);
+            bar.x = bar.x + bar.vx + n;
+        }
+   }
+  
+window.onkeyup = (e) => {
+    n = 0;
+  }
 
 function update() 
 {
