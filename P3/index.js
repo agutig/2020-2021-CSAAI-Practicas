@@ -7,8 +7,6 @@ canvas.width = 1000;
 canvas.height = 800;
 const ctx = canvas.getContext("2d");
 
-
-
 var LADRILLO = {
     F: 5,   
     C: 9,   
@@ -18,12 +16,12 @@ var LADRILLO = {
     padding_x : (1000 - (this.C * this.w))/ (this.C + 1),
     padding_y : (600 - (this.F * this.h))/(this.F +1)
 }
-
+ 
 const ladrillos = [];
-
+ 
 for (let i = 0; i < LADRILLO.F; i++) {
     ladrillos[i] = []; 
-
+ 
     for (let j = 0; j < LADRILLO.C; j++) {
   
       ladrillos[i][j] = {
@@ -36,7 +34,7 @@ for (let i = 0; i < LADRILLO.F; i++) {
       };
     }
 }
-
+ 
 function ladrillo_draw() {
     for (let i = 0; i < LADRILLO.F; i++) {
         for (let j = 0; j < LADRILLO.C; j++) {   
@@ -50,7 +48,10 @@ function ladrillo_draw() {
         }
     }
 }
+
 ladrillo_draw();
+
+
 
 // La barra del jugador:
 
@@ -148,7 +149,7 @@ function colision(obj1 ,obj2){
 
 function update() 
 {
-  bloqs.draw();
+  ladrillo_draw();
   bar.draw();
   ball.draw();
   colision(bar,ball);
