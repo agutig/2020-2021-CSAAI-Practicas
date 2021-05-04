@@ -7,27 +7,50 @@ canvas.width = 1000;
 canvas.height = 800;
 const ctx = canvas.getContext("2d");
 
-var bloqs = {
 
-    height: 30,
-    width: 100,
-    draw: function(){
-        padding_x = (1000 - (9 * this.width))/10;
-        padding_y = (600 - (5 * this.width))/6;
-        ctx.beginPath()
-        for (var i = 1; i != 10 ; i++) {
-            for (var j = 1; j != 6 ; j++) {
 
-                 ctx.rect(((i-1)*this.width + padding_x *i) ,((j-1)*this.height)+ padding_y*j, this.width, this.height);
-                ctx.fillStyle = 'red';
-                ctx.fill();
-                 ctx.stroke();
+var LADRILLO = {
+    F: 5,   
+    C: 9,   
+    w: 30,  
+    h: 20,  
+    visible: true ,
+    padding_x : (1000 - (this.C * this.w))/ (this.C + 1),
+    padding_y : (600 - (this.F * this.h))/(this.F +1)
+}
+
+const ladrillos = [];
+
+for (let i = 0; i < LADRILLO.F; i++) {
+    ladrillos[i] = []; 
+
+    for (let j = 0; j < LADRILLO.C; j++) {
+  
+      ladrillos[i][j] = {
+        x: (LADRILLO.w + LADRILLO.padding) * j,
+        y: (LADRILLO.h + LADRILLO.padding) * i,
+        w: LADRILLO.w,
+        h: LADRILLO.h,
+        visible: LADRILLO.visible
+        
+      };
+    }
+}
+
+function ladrillo_draw() {
+    for (let i = 0; i < LADRILLO.F; i++) {
+        for (let j = 0; j < LADRILLO.C; j++) {   
+          if (ladrillos[i][j].visible) {
+            ctx.beginPath();
+            ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.closePath();
+          }
         }
     }
-    ctx.closePath();
 }
-}
-
+ladrillo_draw();
 
 // La barra del jugador:
 
