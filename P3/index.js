@@ -5,20 +5,29 @@ vida.height = 25;
 
 canvas.width = 1000;
 canvas.height = 800;
-
 const ctx = canvas.getContext("2d");
-ctx.beginPath()
 
-for (var i = 0; i != 9 ; i++) {
-    for (var j = 1; j != 6 ; j++) {
+var bloqs = {
 
-          ctx.rect(((i*110)+5) ,((j-1)*50)+ 5*j, 110, 50);
-          ctx.fillStyle = 'red';
-          ctx.fill();
-          ctx.stroke();
- }
+    height: 30,
+    width: 100,
+    draw: function(){
+        padding_x = (1000 - (9 * this.width))/10;
+        padding_y = (600 - (5 * this.width))/6;
+        ctx.beginPath()
+        for (var i = 1; i != 10 ; i++) {
+            for (var j = 1; j != 6 ; j++) {
+
+                 ctx.rect(((i-1)*this.width + padding_x *i) ,((j-1)*this.height)+ padding_y*j, this.width, this.height);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+                 ctx.stroke();
+        }
+    }
+    ctx.closePath();
 }
-ctx.closePath();
+}
+
 
 // La barra del jugador:
 
@@ -116,7 +125,7 @@ function colision(obj1 ,obj2){
 
 function update() 
 {
-  
+  bloqs.draw();
   bar.draw();
   ball.draw();
   colision(bar,ball);
