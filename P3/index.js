@@ -10,37 +10,39 @@ const ctx = canvas.getContext("2d");
 var LADRILLO = {
     F: 5,   
     C: 9,   
-    w: 30,  
-    h: 20,  
+    width: 100,  //El padding se calcula solo solo hace falta rellenar estos parametros
+    height: 40,  
     visible: true ,
-    padding_x : (1000 - (this.C * this.w))/ (this.C + 1),
-    padding_y : (600 - (this.F * this.h))/(this.F +1)
+    
 }
- 
-const ladrillos = [];
+var padding_x = (1000 - (LADRILLO.C * LADRILLO.width))/ (LADRILLO.C + 1);
+var padding_y = (300 - (LADRILLO.F * LADRILLO.height))/ (LADRILLO.F + 1);
+var ladrillos = [];
  
 for (let i = 0; i < LADRILLO.F; i++) {
     ladrillos[i] = []; 
  
     for (let j = 0; j < LADRILLO.C; j++) {
-  
       ladrillos[i][j] = {
-        x: (LADRILLO.w + LADRILLO.padding) * j,
-        y: (LADRILLO.h + LADRILLO.padding) * i,
-        w: LADRILLO.w,
-        h: LADRILLO.h,
+        x: ((LADRILLO.width + padding_x) * j) + padding_x,
+        y: (LADRILLO.height + padding_y) * i + padding_y,
+        width: LADRILLO.width,
+        height: LADRILLO.height,
         visible: LADRILLO.visible
         
       };
     }
 }
  
+
 function ladrillo_draw() {
     for (let i = 0; i < LADRILLO.F; i++) {
         for (let j = 0; j < LADRILLO.C; j++) {   
-          if (ladrillos[i][j].visible) {
+          if (ladrillos[i][j].visible == true) {
+            console.log(ladrillos[i][j])
+            colision(ladrillos[i][j] , ball);
             ctx.beginPath();
-            ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.w, LADRILLO.h);
+            ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
             ctx.fillStyle = 'red';
             ctx.fill();
             ctx.closePath();
@@ -51,7 +53,15 @@ function ladrillo_draw() {
 
 ladrillo_draw();
 
-
+function colision(obj1 ,obj2){
+    if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
+        if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
+            obj2.vx = -1* obj2.vx;
+            obj2.vy = -1* obj2.vy;
+        }
+    }
+    
+}
 
 // La barra del jugador:
 
@@ -136,20 +146,11 @@ window.onkeyup = (e) => {
     n = 0;
   }
 
-function colision(obj1 ,obj2){
-    console.log(obj2);
-    if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
-        if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
-            obj2.vx = -1* obj2.vx;
-            obj2.vy = -1* obj2.vy;
-        }
-    }
-    
-}
+
 
 function update() 
 {
-  ladrillo_draw();
+ // ladrillo_draw();
   bar.draw();
   ball.draw();
   colision(bar,ball);
