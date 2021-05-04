@@ -24,7 +24,6 @@ ctx.closePath();
 
 var bar = {
     x: 450,
-    old_x: 450,
     y: 700,
     vx: 5,
     vy: 2,
@@ -38,14 +37,37 @@ var bar = {
     }
 };
 
+var ball = {
+    x: 400,
+    y: 500,
+    vx: 5,
+    vy: 2,
+    draw: function() {
 
+        ctx.clearRect(this.x -11 ,this.y -11, 22,22);
 
-ctx.beginPath();
-ctx.arc(450, 500, 10, 0, 2 * Math.PI)
-ctx.fillStyle = 'yellow';
-ctx.fill();
-ctx.stroke();
-ctx.closePath();
+        if (this.x < 0 || this.x >= (canvas.width - 10) ) {
+            this.vx = -1  * this.vx;
+          }
+        
+        if (this.y <= 0 || this.y >= (canvas.height -10)) {
+            this.vy = -1  * this.vy;
+          }
+
+        this.x = this.x + this.vx;
+        this.y = this.y + this.vy;
+        
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();       
+        
+        
+    }
+};
+
 
 ctx.beginPath();
 ctx.fillStyle = 'black';
@@ -54,11 +76,9 @@ ctx.fillText("Puntuacion:", 30, 770);
 ctx.closePath();
 
 vida.onload = ()=> {
-    ctx.beginPath();
     ctx.drawImage(vida,800,750);  
     ctx.drawImage(vida,825,750);  
     ctx.drawImage(vida,850,750); 
-    ctx.closePath();
 };
   
 var izquierda = document.getElementById("a");
@@ -78,6 +98,7 @@ function update()
 {
   
   bar.draw();
+  ball.draw();
   requestAnimationFrame(update);
 }
 
