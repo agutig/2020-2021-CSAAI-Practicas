@@ -7,80 +7,6 @@ canvas.width = 1000;
 canvas.height = 800;
 const ctx = canvas.getContext("2d");
 
-var LADRILLO = {
-    F: 5,   
-    C: 9,   
-    width: 100,  //El padding se calcula solo solo hace falta rellenar estos parametros
-    height: 40,  
-    visible: true ,
-    
-}
-var padding_x = (1000 - (LADRILLO.C * LADRILLO.width))/ (LADRILLO.C + 1);
-var padding_y = (300 - (LADRILLO.F * LADRILLO.height))/ (LADRILLO.F + 1);
-var ladrillos = [];
- 
-for (let i = 0; i < LADRILLO.F; i++) {
-    ladrillos[i] = []; 
- 
-    for (let j = 0; j < LADRILLO.C; j++) {
-      ladrillos[i][j] = {
-        x: ((LADRILLO.width + padding_x) * j) + padding_x,
-        y: (LADRILLO.height + padding_y) * i + padding_y,
-        width: LADRILLO.width,
-        height: LADRILLO.height,
-        visible: LADRILLO.visible
-        
-      };
-    }
-}
- 
-
-function ladrillo_draw() {
-    for (let i = 0; i < LADRILLO.F; i++) {
-        for (let j = 0; j < LADRILLO.C; j++) {   
-          if (ladrillos[i][j].visible == true) {
-            console.log(ladrillos[i][j])
-            colision(ladrillos[i][j] , ball);
-            ctx.beginPath();
-            ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
-            ctx.fillStyle = 'red';
-            ctx.fill();
-            ctx.closePath();
-          }
-        }
-    }
-}
-
-ladrillo_draw();
-
-function colision(obj1 ,obj2){
-    if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
-        if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
-            obj2.vx = -1* obj2.vx;
-            obj2.vy = -1* obj2.vy;
-        }
-    }
-    
-}
-
-// La barra del jugador:
-
-var bar = {
-    x: 450,
-    y: 700,
-    width: 100,
-    height:10,
-    vx: 2,
-    draw: function() {
-        ctx.beginPath();
-        ctx.rect(this.x,this.y , this.width, this.height);
-        ctx.fillStyle = 'green';
-        ctx.fill();
-        ctx.stroke();
-        ctx.closePath();
-    }
-};
-
 
 
 var ball = {
@@ -113,6 +39,86 @@ var ball = {
         ctx.closePath();            
     }
 };
+
+var LADRILLO = {
+    F: 5,   
+    C: 9,   
+    width: 100,  //El padding se calcula solo solo hace falta rellenar estos parametros
+    height: 40,  
+    visible: true ,
+    
+}
+var padding_x = (1000 - (LADRILLO.C * LADRILLO.width))/ (LADRILLO.C + 1);
+var padding_y = (300 - (LADRILLO.F * LADRILLO.height))/ (LADRILLO.F + 1);
+var ladrillos = [];
+ 
+for (let i = 0; i < LADRILLO.F; i++) {
+    ladrillos[i] = []; 
+ 
+    for (let j = 0; j < LADRILLO.C; j++) {
+      ladrillos[i][j] = {
+        x: ((LADRILLO.width + padding_x) * j) + padding_x,
+        y: (LADRILLO.height + padding_y) * i + padding_y,
+        width: LADRILLO.width,
+        height: LADRILLO.height,
+        visible: LADRILLO.visible
+        
+      };
+    }
+}
+
+function colision(obj1 ,obj2){
+    if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
+        if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
+            obj2.vx = -1* obj2.vx;
+            obj2.vy = -1* obj2.vy;
+        }
+    }
+    
+}
+
+function ladrillo_draw() {
+    for (let i = 0; i < LADRILLO.F; i++) {
+        for (let j = 0; j < LADRILLO.C; j++) {   
+          if (ladrillos[i][j].visible == true) {
+
+            colision(ladrillos[i][j] , ball);
+            
+            ctx.beginPath();
+            ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            ctx.closePath();
+          }
+        }
+    }
+}
+
+ladrillo_draw();
+
+
+
+// La barra del jugador:
+
+var bar = {
+    x: 450,
+    y: 700,
+    width: 100,
+    height:10,
+    vx: 2,
+    draw: function() {
+        ctx.beginPath();
+        ctx.rect(this.x,this.y , this.width, this.height);
+        ctx.fillStyle = 'green';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
+    }
+};
+
+
+
+
 
 
 ctx.beginPath();
