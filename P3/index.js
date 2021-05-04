@@ -24,16 +24,17 @@ ctx.closePath();
 
 var bar = {
     x: 450,
+    old_x: 450,
     y: 700,
     vx: 5,
     vy: 2,
     draw: function() {
-        ctx.beginPath(),
-        ctx.rect(this.x,this.y , 100, 10),
-        ctx.fillStyle = 'green',
-        ctx.fill(),
-        ctx.stroke(),
-        ctx.closePath
+        ctx.beginPath();
+        ctx.rect(this.x,this.y , 100, 10);
+        ctx.fillStyle = 'green';
+        ctx.fill();
+        ctx.stroke();
+        ctx.closePath();
     }
 };
 
@@ -53,19 +54,23 @@ ctx.fillText("Puntuacion:", 30, 770);
 ctx.closePath();
 
 vida.onload = ()=> {
+    ctx.beginPath();
     ctx.drawImage(vida,800,750);  
     ctx.drawImage(vida,825,750);  
     ctx.drawImage(vida,850,750); 
+    ctx.closePath();
 };
   
 var izquierda = document.getElementById("a");
 var derecha = document.getElementById("d");
 
 izquierda.onclick = () => {
+    ctx.clearRect(bar.x -1 , bar.y -1  , 102,12);
     bar.x = bar.x - 20;
 }
 
 derecha.onclick = () => {
+    ctx.clearRect(bar.x -1 , bar.y -1 , 102,12);
     bar.x = bar.x + 20;
 }
 
