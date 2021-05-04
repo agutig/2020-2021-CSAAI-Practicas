@@ -30,7 +30,7 @@ var bar = {
     vx: 2,
     draw: function() {
         ctx.beginPath();
-        ctx.rect(this.x,this.y , this.with, this.height);
+        ctx.rect(this.x,this.y , this.width, this.height);
         ctx.fillStyle = 'green';
         ctx.fill();
         ctx.stroke();
@@ -38,49 +38,32 @@ var bar = {
     }
 };
 
-function colision(obj1 ,obj2){
-    for (i1 = obj1.x ; i1 != obj1.x + obj1.width ; i1++){
-        for (j1 = obj2.x ; j1= obj2.x + obj2.width ; j1++){
-            if (i1 == j1){
-                for(i2 = obj1.y ; i2 != obj1.y + obj1.width ; i2++){
-                    for (j2 = obj2.x ; j2= obj2.x + obj2.width ; j2++){
-                        if (i2 == j2){
-                            obj2.vx = - 1* obj2.vx
-                            obj2.vy = - 1* obj2.vy
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 var ball = {
-    x_center: 400,
-    y_center: 500,
     width: 10,
     height:10,
-    x: 400 - this.width,
-    y: 500 -  this.width, 
+    x: 400 ,
+    y: 500 , 
     vx: 5,
     vy: -2,
     draw: function() {
 
-        ctx.clearRect(this.x_center -11 ,this.y_center -11, 22,22);
+        ctx.clearRect(this.x -11 ,this.y -11, 22,22);
 
-        if (this.x_center < 0 || this.x_center >= (canvas.width - 10) ) {
+        if (this.x < 0 || this.x >= (canvas.width - 10) ) {
             this.vx = -1  * this.vx;
           }
         
-        if (this.y_center <= 0) {
+        if (this.y <= 0) {
             this.vy = -1  * this.vy;
           }
 
-        this.x_center = this.x_center + this.vx;
-        this.y_center = this.y_center + this.vy;
+        this.x = this.x + this.vx;
+        this.y = this.y + this.vy;
         
         ctx.beginPath();
-        ctx.arc(this.x_center, this.y_center, 10, 0, 2 * Math.PI);
+        ctx.arc(this.x, this.y, 10, 0, 2 * Math.PI);
         ctx.fillStyle = 'yellow';
         ctx.fill();
         ctx.stroke();
@@ -120,13 +103,23 @@ window.onkeyup = (e) => {
     n = 0;
   }
 
-
+function colision(obj1 ,obj2){
+    console.log(obj2);
+    if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
+        if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
+            obj2.vx = -1* obj2.vx;
+            obj2.vy = -1* obj2.vy;
+        }
+    }
+    
+}
 
 function update() 
 {
   
   bar.draw();
   ball.draw();
+  colision(bar,ball);
   requestAnimationFrame(update);
 }
 
