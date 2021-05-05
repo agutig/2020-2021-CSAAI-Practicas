@@ -15,7 +15,7 @@ var ball = {
     x: 400 ,
     y: 500 , 
     vx: 5,
-    vy: -2,
+    vy: 2,
     draw: function() {
 
         ctx.clearRect(this.x -11 ,this.y -11, 22,22);
@@ -69,7 +69,9 @@ for (let i = 0; i < LADRILLO.F; i++) {
 
 function colision(obj1 ,obj2){
     if(obj2.x >= obj1.x  &&  obj2.x <= obj1.x + obj1.width){
+        ///Aqui, meterle caña
         if(obj2.y + obj2.width >= obj1.y  &&  obj2.y + obj2.width <= obj1.y){
+            console.log("hey")
             obj2.vx = -1* obj2.vx;
             obj2.vy = -1* obj2.vy;
         }
@@ -83,7 +85,7 @@ function ladrillo_draw() {
           if (ladrillos[i][j].visible == true) {
 
             colision(ladrillos[i][j] , ball);
-            
+
             ctx.beginPath();
             ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
             ctx.fillStyle = 'red';
@@ -94,7 +96,7 @@ function ladrillo_draw() {
     }
 }
 
-ladrillo_draw();
+
 
 
 
@@ -156,7 +158,7 @@ window.onkeyup = (e) => {
 
 function update() 
 {
- // ladrillo_draw();
+  ladrillo_draw();
   bar.draw();
   ball.draw();
   colision(bar,ball);
