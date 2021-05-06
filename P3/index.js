@@ -84,15 +84,14 @@ function colision(obj1 ,obj2){
 function ladrillo_draw() {
     for (let i = 0; i < LADRILLO.F; i++) {
         for (let j = 0; j < LADRILLO.C; j++) {   
+          ctx.clearRect(ladrillos[i][j].x, ladrillos[i][j].y , LADRILLO.width + 2,LADRILLO.height + 2);
+          eliminar = false;
           if (ladrillos[i][j].visible == true) {
-            eliminar = false;
             colision(ladrillos[i][j] , ball);
             if (eliminar == true){
               ladrillos[i][j].visible = false;
               eliminar = false;
             }
-
-            ctx.clearRect(ladrillos[i][j].x, ladrillos[i][j].y , LADRILLO.width,LADRILLO.height);
             ctx.beginPath();
             ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
             ctx.fillStyle = 'red';
