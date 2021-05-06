@@ -1,12 +1,16 @@
 const canvas = document.getElementById("canvas");
 const vida = document.getElementById("vida");
 var puntuacion = 0;
+var vidas = 3;
 vida.width = 25;
 vida.height = 25;
 
 canvas.width = 1000;
 canvas.height = 800;
 const ctx = canvas.getContext("2d");
+
+
+
 
 // puntuacion
 function puntuacion_draw(){
@@ -26,7 +30,7 @@ var ball = {
     x: 400 ,
     y: 500 , 
     vx: 5,
-    vy: 2,
+    vy: -3,
     draw: function() {
 
         ctx.clearRect(this.x -11 ,this.y -11, 22,22);
@@ -55,7 +59,7 @@ var LADRILLO = {
     F: 5,   
     C: 9,   
     width: 100,  //El padding se calcula solo solo hace falta rellenar estos parametros
-    height: 40,  
+    height: 20,  
     visible: true ,
     
 }
@@ -85,7 +89,7 @@ function colision(obj1 ,obj2){
         ///Aqui, meterle caña
         if(obj2.y + obj2.width >= obj1.y  &&  obj2.y - obj2.width <= obj1.y + obj1.height){
             eliminar = true;
-            obj2.vx = -1* obj2.vx;
+            obj2.vx = 1* obj2.vx;
             obj2.vy = -1* obj2.vy;
         }
     }
@@ -95,7 +99,7 @@ function colision(obj1 ,obj2){
 function ladrillo_draw() {
     for (let i = 0; i < LADRILLO.F; i++) {
         for (let j = 0; j < LADRILLO.C; j++) {   
-          ctx.clearRect(ladrillos[i][j].x, ladrillos[i][j].y , LADRILLO.width + 2,LADRILLO.height + 2);
+          ctx.clearRect(ladrillos[i][j].x, ladrillos[i][j].y -2, LADRILLO.width + 2,LADRILLO.height + 4);
           eliminar = false;
           if (ladrillos[i][j].visible == true) {
             colision(ladrillos[i][j] , ball);
@@ -126,7 +130,7 @@ var bar = {
     y: 700,
     width: 100,
     height:10,
-    vx: 2,
+    vx: 8,
     draw: function() {
         ctx.beginPath();
         ctx.rect(this.x,this.y , this.width, this.height);
@@ -138,14 +142,17 @@ var bar = {
 };
 
 
+//Vidas
+function vidas_load(){
+ctx.clearRect(790,750 , 100,20);
+var vida_pos = [800 , 825 ,850];
+  for(i = 0 ; i < vidas ; i++){
+    ctx.drawImage(vida,vida_pos[i],750);  
+  }
+}
+vidas_load();
 
 
-vida.onload = ()=> {
-    ctx.drawImage(vida,800,750);  
-    ctx.drawImage(vida,825,750);  
-    ctx.drawImage(vida,850,750); 
-};
-  
 n = 0;
 window.onkeydown = (e) => {
     n = n+1;
@@ -166,6 +173,17 @@ window.onkeyup = (e) => {
   }
 
 
+function perder(){
+    if (ball.y >= 800){
+      vidas = vidas -1;
+      console.log(vida);
+      vidas_load();
+      ball.vy = 0;
+      ball.vx = 0;
+      ball.y = 500;
+    }
+}
+
 
 function update() 
 {
@@ -173,6 +191,7 @@ function update()
   bar.draw();
   ball.draw();
   colision(bar,ball);
+  perder();
   requestAnimationFrame(update);
 }
 
