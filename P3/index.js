@@ -1,5 +1,6 @@
 const canvas = document.getElementById("canvas");
 const vida = document.getElementById("vida");
+var puntuacion = 0;
 vida.width = 25;
 vida.height = 25;
 
@@ -7,7 +8,17 @@ canvas.width = 1000;
 canvas.height = 800;
 const ctx = canvas.getContext("2d");
 
+// puntuacion
+function puntuacion_draw(){
+  ctx.clearRect(30, 500 , 180,270);
+  ctx.beginPath();
+  ctx.fillStyle = 'black';
+  ctx.font = "25px Arial";
+  ctx.fillText("Puntuacion: " + puntuacion.toString(), 30, 770);
+  ctx.closePath();
+}
 
+puntuacion_draw();
 
 var ball = {
     width: 10,
@@ -91,6 +102,8 @@ function ladrillo_draw() {
             if (eliminar == true){
               ladrillos[i][j].visible = false;
               eliminar = false;
+              puntuacion = puntuacion + 10;
+              puntuacion_draw();
             }
             ctx.beginPath();
             ctx.rect(ladrillos[i][j].x, ladrillos[i][j].y, LADRILLO.width, LADRILLO.height);
@@ -126,14 +139,6 @@ var bar = {
 
 
 
-
-
-
-ctx.beginPath();
-ctx.fillStyle = 'black';
-ctx.font = "25px Arial";
-ctx.fillText("Puntuacion:", 30, 770);
-ctx.closePath();
 
 vida.onload = ()=> {
     ctx.drawImage(vida,800,750);  
