@@ -174,7 +174,7 @@ window.onkeyup = (e) => {
 
 
 function perder(){
-    if (ball.y >= 800){
+    if (ball.y >= 800 + ball.width){
       vidas = vidas -1;
       console.log(vida);
       vidas_load();
