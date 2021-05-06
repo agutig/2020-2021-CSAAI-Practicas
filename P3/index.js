@@ -10,7 +10,7 @@ canvas.height = 800;
 const ctx = canvas.getContext("2d");
 
 
-
+var ESTADO = 0; // 0 preparado para iniciar el juego , 1 en juego , 2 GAMEOVER
 
 // puntuacion
 function puntuacion_draw(){
@@ -29,8 +29,8 @@ var ball = {
     height:10,
     x: 400 ,
     y: 500 , 
-    vx: 5,
-    vy: -3,
+    vx: 0,
+    vy: 0,
     draw: function() {
 
         ctx.clearRect(this.x -11 ,this.y -11, 22,22);
@@ -63,10 +63,18 @@ var LADRILLO = {
     visible: true ,
     
 }
+
+//function ladrillos_init
+
 var padding_x = (1000 - (LADRILLO.C * LADRILLO.width))/ (LADRILLO.C + 1);
 var padding_y = (300 - (LADRILLO.F * LADRILLO.height))/ (LADRILLO.F + 1);
+
+
 var ladrillos = [];
- 
+function ladrillos_init(){ 
+
+ladrillos = [];
+
 for (let i = 0; i < LADRILLO.F; i++) {
     ladrillos[i] = []; 
  
@@ -81,6 +89,8 @@ for (let i = 0; i < LADRILLO.F; i++) {
       };
     }
 }
+}
+ladrillos_init();
 
 var eliminar = false;
 
@@ -152,6 +162,23 @@ var vida_pos = [800 , 825 ,850];
 }
 vidas_load();
 
+function start(){
+  ball.x = 400 ;
+  ball.y = 500 ; 
+  ball.vx = 5;
+  ball.vy = -3;
+}
+
+
+
+function reset(){
+  ESTADO = 0;
+  vidas = 3;
+  puntuacion = 0;
+  vidas_load();
+  puntuacion_draw();
+  ladrillos_init();
+}
 
 n = 0;
 window.onkeydown = (e) => {
@@ -162,15 +189,24 @@ window.onkeydown = (e) => {
    }
 
 
-    if (e.keyCode == 39 || e.key == "d") {
+  if (e.keyCode == 39 || e.key == "d") {
         ctx.clearRect(bar.x -1 , bar.y -1 , 102,12);
             bar.x = bar.x + bar.vx + n;
-        }
+      }
+
+  if (ESTADO == 0 && e.keyCode == 32){
+    start();
+    ESTADO = 1;
+  }else if (ESTADO == 2 && e.keyCode == 32){
+    reset();
+  }
+
 }
   
 window.onkeyup = (e) => {
     n = 0;
   }
+
 
 
 function perder(){
@@ -180,9 +216,12 @@ function perder(){
       vidas_load();
       ball.vy = 0;
       ball.vx = 0;
-      ball.y = 500;
+      ball.y = -500;
+      ESTADO = 0;
+      if (vidas <= 0 ){ESTADO = 2}
     }
 }
+
 
 
 function update() 
