@@ -22,6 +22,22 @@ function puntuacion_draw(){
   ctx.closePath();
 }
 
+
+function texto(t ,x, z){
+  ctx.clearRect(400, z , 300,300);
+  ctx.beginPath();
+  ctx.fillStyle = 'black';
+  ctx.font = x + "px Arial";
+  ctx.fillText(t, 440, z);
+  ctx.closePath();
+}
+texto("hey" ,100 ,400);
+
+function borrar_texto(){
+ ctx.clearRect(0, 300 , 800,300);
+}
+
+
 puntuacion_draw();
 
 var ball = {
@@ -195,6 +211,7 @@ window.onkeydown = (e) => {
       }
 
   if (ESTADO == 0 && e.keyCode == 32){
+    borrar_texto();
     start();
     ESTADO = 1;
   }else if (ESTADO == 2 && e.keyCode == 32){
