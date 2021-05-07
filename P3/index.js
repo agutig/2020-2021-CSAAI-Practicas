@@ -28,13 +28,13 @@ function texto(t ,x, z){
   ctx.beginPath();
   ctx.fillStyle = 'black';
   ctx.font = x + "px Arial";
-  ctx.fillText(t, 440, z);
+  ctx.fillText(t, 500 - (x*t.length/4), z);
   ctx.closePath();
 }
-texto("hey" ,100 ,400);
+
 
 function borrar_texto(){
- ctx.clearRect(0, 300 , 800,300);
+ ctx.clearRect(0, 300 , 900,300);
 }
 
 
@@ -194,7 +194,10 @@ function reset(){
   vidas_load();
   puntuacion_draw();
   ladrillos_init();
+  texto("Breakout" ,100 ,400);
+  texto("pulsa SPACE para comenzar" ,50 ,500);
 }
+reset();
 
 n = 0;
 window.onkeydown = (e) => {
@@ -235,7 +238,14 @@ function perder(){
       ball.vx = 0;
       ball.y = -500;
       ESTADO = 0;
-      if (vidas <= 0 ){ESTADO = 2}
+      if (vidas <= 0 ){
+        ESTADO = 2
+        texto("GAME OVER" ,100 ,400);
+        texto("pulsa SPACE para reintentarlo" ,50 ,500);}
+      else{
+        texto("-1 VIDA" ,100 ,400);
+        texto("pulsa SPACE para continuar" ,50 ,500);
+      }
     }
 }
 
