@@ -28,7 +28,7 @@ function texto(t ,x, z){
   ctx.beginPath();
   ctx.fillStyle = 'black';
   ctx.font = x + "px Arial";
-  ctx.fillText(t, 500 - (x*t.length/4), z);
+  ctx.fillText(t, 460 - (x*t.length/5), z);
   ctx.closePath();
 }
 
@@ -195,7 +195,7 @@ function reset(){
   puntuacion_draw();
   ladrillos_init();
   texto("Breakout" ,100 ,400);
-  texto("pulsa SPACE para comenzar" ,50 ,500);
+  texto("pulsa [space] para comenzar" ,50 ,500);
 }
 reset();
 
@@ -240,11 +240,12 @@ function perder(){
       ESTADO = 0;
       if (vidas <= 0 ){
         ESTADO = 2
-        texto("GAME OVER" ,100 ,400);
-        texto("pulsa SPACE para reintentarlo" ,50 ,500);}
+        texto("game over" ,100 ,400);
+        texto("pulsa [space] para reintentar" ,50 ,500);
+      }
       else{
         texto("-1 VIDA" ,100 ,400);
-        texto("pulsa SPACE para continuar" ,50 ,500);
+        texto("pulsa [space] para continuar" ,50 ,500);
       }
     }
 }
