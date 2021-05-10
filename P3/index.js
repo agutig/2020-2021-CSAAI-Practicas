@@ -43,8 +43,8 @@ puntuacion_draw();
 var ball = {
     width: 10,
     height:10,
-    x: 400 ,
-    y: 500 , 
+    x: 500 ,
+    y: 688 , 
     vx: 0,
     vy: 0,
     draw: function() {
@@ -70,6 +70,14 @@ var ball = {
         ctx.closePath();            
     }
 };
+
+function start(){
+  ball.x = 500 ;
+  ball.y = 688 ; 
+  ball.vx = 5;
+  ball.vy = -3;
+}
+
 
 var LADRILLO = {
     F: 5,   
@@ -164,7 +172,13 @@ var bar = {
         ctx.fill();
         ctx.stroke();
         ctx.closePath();
+    },
+    reset: function() {
+        ctx.clearRect(0,699 , 1000, 12);
+        bar.x=450;
+        bar.y=700;
     }
+    
 };
 
 
@@ -178,12 +192,6 @@ var vida_pos = [800 , 825 ,850];
 }
 vidas_load();
 
-function start(){
-  ball.x = 400 ;
-  ball.y = 500 ; 
-  ball.vx = 5;
-  ball.vy = -3;
-}
 
 
 
@@ -192,6 +200,8 @@ function reset(){
   vidas = 3;
   puntuacion = 0;
   vidas_load();
+  bar.reset();
+  bar.draw();
   puntuacion_draw();
   ladrillos_init();
   texto("Breakout" ,100 ,400);
@@ -215,9 +225,12 @@ window.onkeydown = (e) => {
 
   if (ESTADO == 0 && e.keyCode == 32){
     borrar_texto();
+    bar.reset();
+    bar.draw();
     start();
     ESTADO = 1;
   }else if (ESTADO == 2 && e.keyCode == 32){
+    ctx.clearRect(0 ,0, canvas.width ,canvas.height );
     reset();
   }
 
@@ -238,6 +251,7 @@ function perder(){
       ball.vx = 0;
       ball.y = -500;
       ESTADO = 0;
+     
       if (vidas <= 0 ){
         ESTADO = 2
         texto("game over" ,100 ,400);
@@ -259,6 +273,14 @@ function update()
   ball.draw();
   colision(bar,ball);
   perder();
+  if (puntuacion >= 450){
+      ESTADO = 2
+      ball.vy = 0;
+      ball.vx = 0;
+      ball.y = -500;
+      texto("you win" ,100 ,400);
+      texto("pulsa [space] para jugar otra vez" ,50 ,500);
+  }
   requestAnimationFrame(update);
 }
 
