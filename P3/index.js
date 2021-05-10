@@ -14,11 +14,12 @@ var ESTADO = 0; // 0 preparado para iniciar el juego , 1 en juego , 2 GAMEOVER
 
 // puntuacion
 function puntuacion_draw(){
-  ctx.clearRect(30, 500 , 180,270);
+  ctx.clearRect(10, 0 , 250,70);
   ctx.beginPath();
+  ctx.fill();
   ctx.fillStyle = 'black';
-  ctx.font = "25px Arial";
-  ctx.fillText("Puntuacion: " + puntuacion.toString(), 30, 770);
+  ctx.font = "35px Arial";
+  ctx.fillText("Puntuacion: " + puntuacion.toString(), 10, 50);
   ctx.closePath();
 }
 
@@ -105,7 +106,7 @@ for (let i = 0; i < LADRILLO.F; i++) {
     for (let j = 0; j < LADRILLO.C; j++) {
       ladrillos[i][j] = {
         x: ((LADRILLO.width + padding_x) * j) + padding_x,
-        y: (LADRILLO.height + padding_y) * i + padding_y,
+        y: (LADRILLO.height + padding_y) * i + padding_y + 40,
         width: LADRILLO.width,
         height: LADRILLO.height,
         visible: LADRILLO.visible
@@ -140,7 +141,7 @@ function ladrillo_draw() {
             if (eliminar == true){
               ladrillos[i][j].visible = false;
               eliminar = false;
-              puntuacion = puntuacion + 10;
+              puntuacion = puntuacion + 1;
               puntuacion_draw();
             }
             ctx.beginPath();
@@ -184,10 +185,10 @@ var bar = {
 
 //Vidas
 function vidas_load(){
-ctx.clearRect(790,750 , 100,20);
+ctx.clearRect(790,30 , 100,20);
 var vida_pos = [800 , 825 ,850];
   for(i = 0 ; i < vidas ; i++){
-    ctx.drawImage(vida,vida_pos[i],750);  
+    ctx.drawImage(vida,vida_pos[i],30);  
   }
 }
 vidas_load();
@@ -274,7 +275,7 @@ function update()
   ball.draw();
   colision(bar,ball);
   perder();
-  if (puntuacion >= 450){
+  if (puntuacion >= 45){
       ESTADO = 2
       ball.vy = 0;
       ball.vx = 0;
