@@ -247,6 +247,7 @@ function perder(){
       vidas = vidas -1;
       console.log(vida);
       vidas_load();
+      puntuacion_draw();
       ball.vy = 0;
       ball.vx = 0;
       ball.y = -500;
