@@ -3,6 +3,9 @@ body {
     text-align: center;
   }
 
+p{
+  font-size: 2vw;
+}
 .image_box{
   float: left;
   margin: 4vw;
@@ -20,9 +23,14 @@ canvas{
 
 #botones{
   border-color:solid, black;
-  width: 88vw;
+  width: 92vw;
   height: 50vw;
-  margin: 4vw;
+  margin: 2vw;
   float: left;
 }
 
+button{
+  width: 8vw;
+  height: 4vw;
+  font-size: 1vw;
+}
