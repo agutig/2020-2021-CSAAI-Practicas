@@ -33,7 +33,7 @@ boton_gris.onclick = () => {
       boton_gris.style.backgroundColor= "orange";
       gray_er();
       console.log(data[0]);
-      ctx.putImageData(imgData, 200, 200 );
+      ctx.putImageData(imgData,0, 0 );
       Estado_gris = 1;
     }
     else{
