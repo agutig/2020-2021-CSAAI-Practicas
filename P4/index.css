@@ -9,18 +9,14 @@ p{
 }
 .image_box{
   border: 5px solid red;
+  width: 35vw;
+  height: 35vw;
   float: left;
   margin: 4vw;
 }
-
 img{
   width: 35vw;
-  height: 20vw;
-}
-
-canvas{
-  width: 35vw;
-  height: 20vw;
+  height: 25vw;
 }
 
 #botones{
