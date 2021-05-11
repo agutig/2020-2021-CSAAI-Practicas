@@ -1,3 +1,28 @@
 body {
     background-color: grey;
+    text-align: center;
   }
+
+.image_box{
+  float: left;
+  margin: 4vw;
+}
+
+img{
+  width: 40vw;
+  height: 25vw;
+}
+
+canvas{
+  width: 40vw;
+  height: 25vw;
+}
+
+#botones{
+  border-color:solid, black;
+  width: 88vw;
+  height: 50vw;
+  margin: 4vw;
+  float: left;
+}
+
