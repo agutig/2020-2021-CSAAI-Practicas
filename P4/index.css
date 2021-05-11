@@ -7,24 +7,25 @@ p{
   font-size: 2vw;
 }
 .image_box{
+  border: 5px solid red;
   float: left;
   margin: 4vw;
 }
 
 img{
-  width: 40vw;
-  height: 25vw;
+  width: 35vw;
+  height: 20vw;
 }
 
 canvas{
-  width: 40vw;
-  height: 25vw;
+  width: 35vw;
+  height: 20vw;
 }
 
 #botones{
-  border-color:solid, black;
+  border: 5px solid red;
   width: 92vw;
-  height: 50vw;
+  height: 5vw;
   margin: 2vw;
   float: left;
 }
