@@ -10,9 +10,9 @@ const ctx = canvas.getContext('2d');
 img.onload = function () {
   ctx.drawImage(img, 0,0 );
 };
+ctx.drawImage(img, 0,0 );
 canvas.width = img.width;
 canvas.height = img.height;
-ctx.drawImage(img, 0,0 );
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 let data = imgData.data;
