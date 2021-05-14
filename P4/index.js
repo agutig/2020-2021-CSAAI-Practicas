@@ -95,6 +95,10 @@ boton_colores.onclick = () => {
   //reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
+        
+      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      data = imgData.data
+      data_copy = data.slice();
       visible_elements();
       red_thresh();
       green_thresh();
@@ -114,14 +118,15 @@ boton_colores.onclick = () => {
 
 function red_thresh(){
   ctx.drawImage(img, 0,0);
-  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  data = imgData.data
+
   text_red.innerHTML = "Umbral R: " + deslizador_r.value;
   umbral = deslizador_r.value;
   for (let i = 0; i < data.length; i+=4) {
-      if (data[i] > umbral){
+      if (data_copy[i] > umbral){
           data[i] = umbral;
-       }
+       }else{
+        data[i] = data_copy[i];
+     }
 }
 colored = data.slice();
 ctx.putImageData(imgData, 0, 0);
@@ -130,13 +135,14 @@ ctx.putImageData(imgData, 0, 0);
 function green_thresh(){
   text_green.innerHTML = "Umbral G: " + deslizador_g.value;
   ctx.drawImage(img, 0,0);
-  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  data = imgData.data
+
   umbral = deslizador_g.value;
   for (let i = 0; i < data.length; i+=4) {
-      if (data[i+1] > umbral){
+      if (data_copy[i+1] > umbral){
           data[i+1] = umbral;
-       }
+       }else{
+        data[i+1] = data_copy[i+1];
+     }
   }
 
 colored = data.slice();
@@ -148,14 +154,12 @@ ctx.putImageData(imgData, 0, 0);
 function blue_thresh(){
   text_blue.innerHTML = "Umbral B: " + deslizador_b.value;
   ctx.drawImage(img, 0,0);
-
-  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  data = imgData.data
-
   umbral = deslizador_b.value;
   for (let i = 0; i < data.length; i+=4) {
-      if (data[i+2] > umbral){
+      if (data_copy[i+2] > umbral){
           data[i+2] = umbral;
+       }else{
+          data[i+2] = data_copy[i+2];
        }
   }
   colored = data.slice();
