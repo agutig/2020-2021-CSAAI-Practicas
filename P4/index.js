@@ -12,25 +12,29 @@ img.onload = function () {
     ctx.drawImage(img, 0,0 );
 };
 
-//canvas.width = img.width;
-//canvas.height = img.height;
-//ctx.drawImage(img, 0,0 );
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
 let data = imgData.data;
 console.log(data);
-let Estado_gris = 0;
 const original_colors = data.slice();
+let Estado_gris = 0;
 
+
+function gray_maker (){
+
+}
 
 boton_gris.onclick = () => {
+  ctx.drawImage(img, 0,0 );
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  data = imgData.data;
+
     if (Estado_gris == 0){
       boton_gris.style.backgroundColor= "orange";
 
-      for (let i = 0; i < data.length; i+=4) {
-        data[i] = 255;
-      }
-      ctx.putImageData(imgData,0, 0 );
+//CODIGO PARA LA MODIFICACION DE LA IMAGEN
+      gray_maker();
+//////////////////////////////////////////
+      ctx.putImageData(imgData,0, 0);
       Estado_gris = 1;
     }
     else{
