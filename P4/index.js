@@ -66,7 +66,7 @@ boton_gris.onclick = () => {
   Estado_colores= 0;
   boton_colores.style.backgroundColor= "white";
   invisible_elements();
-  reset;
+  //reset;
     if (Estado_gris == 0){
       boton_gris.style.backgroundColor= "orange";
 
@@ -92,7 +92,7 @@ boton_colores.onclick = () => {
   data = imgData.data;
   Estado_gris = 0;
   boton_gris.style.backgroundColor= "white";
-  reset;
+  //reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
       visible_elements();
@@ -114,6 +114,8 @@ boton_colores.onclick = () => {
 
 function red_thresh(){
   ctx.drawImage(img, 0,0);
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  data = imgData.data
   text_red.innerHTML = "Umbral R: " + deslizador_r.value;
   umbral = deslizador_r.value;
   for (let i = 0; i < data.length; i+=4) {
@@ -128,6 +130,8 @@ ctx.putImageData(imgData, 0, 0);
 function green_thresh(){
   text_green.innerHTML = "Umbral G: " + deslizador_g.value;
   ctx.drawImage(img, 0,0);
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  data = imgData.data
   umbral = deslizador_g.value;
   for (let i = 0; i < data.length; i+=4) {
       if (data[i+1] > umbral){
@@ -144,6 +148,10 @@ ctx.putImageData(imgData, 0, 0);
 function blue_thresh(){
   text_blue.innerHTML = "Umbral B: " + deslizador_b.value;
   ctx.drawImage(img, 0,0);
+
+  imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  data = imgData.data
+
   umbral = deslizador_b.value;
   for (let i = 0; i < data.length; i+=4) {
       if (data[i+2] > umbral){
