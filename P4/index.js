@@ -29,12 +29,20 @@ function gray_maker (){
   }
 }
 
+function reset (){
+  for (let i = 0; i < data.length; i+=4) {
+    data = original_colors.slice();
+    ctx.putImageData(imgData, 0, 0);
+  }
+}
+
 boton_gris.onclick = () => {
   ctx.drawImage(img, 0,0 );
   imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   data = imgData.data;
   Estado_colores= 0;
   boton_colores.style.backgroundColor= "white";
+  reset;
     if (Estado_gris == 0){
       boton_gris.style.backgroundColor= "orange";
 
@@ -60,8 +68,13 @@ boton_colores.onclick = () => {
   data = imgData.data;
   Estado_gris = 0;
   boton_gris.style.backgroundColor= "white";
+  reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
+
+      for (let i = 0; i < data.length; i+=4) {
+        data[i] = 255;
+      }
 
       ctx.putImageData(imgData,0, 0);
       Estado_colores = 1;
