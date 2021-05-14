@@ -6,3 +6,25 @@
 .deslizador{
   display: none;
 }
+
+img{
+  height: 30vw;
+  width: 40vw;
+}
+
+canvas{
+  height: 30vw;
+  width: 40vw;
+}
+
+.image_box{
+  float: left;
+  box-sizing: content-box;
+  margin: 4vw;
+  font-size: 2vw;
+  
+}
+
+#botones{
+  text-align: center;
+}
