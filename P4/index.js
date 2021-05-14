@@ -9,6 +9,9 @@ const boton_colores = document.getElementById('colores');
 const deslizador_r = document.getElementById('deslizador_r');
 const deslizador_g = document.getElementById('deslizador_g');
 const deslizador_b = document.getElementById('deslizador_b');
+let text_red = document.getElementById('range_value_red');
+//let text_green = document.getElementById('range_value_green');
+//let text_blue = document.getElementById('range_value_blue');
 
 img.onload = function () {
     canvas.width = img.width;
@@ -42,7 +45,7 @@ function visible_elements(){
   deslizador_r.style.display="block";
   deslizador_g.style.display="block";
   deslizador_b.style.display="block";
-  //text_red.style.display="block";
+  text_red.style.display="block";
   //text_green.style.display="block";
   //text_blue.style.display="block";
 }
@@ -51,8 +54,8 @@ function invisible_elements(){
   deslizador_r.style.display="none";
   deslizador_g.style.display="none";
   deslizador_b.style.display="none";
- // text_red.style.display="none";
- // text_green.style.display="none";
+  text_red.style.display="none";
+  text_green.style.display="none";
  // text_blue.style.display="none";
 }
 
@@ -62,6 +65,7 @@ boton_gris.onclick = () => {
   data = imgData.data;
   Estado_colores= 0;
   boton_colores.style.backgroundColor= "white";
+  invisible_elements();
   reset;
     if (Estado_gris == 0){
       boton_gris.style.backgroundColor= "orange";
@@ -109,7 +113,6 @@ boton_colores.onclick = () => {
 }
 
 function red_thresh(){
-  range_value.innerHTML = deslizador_r.value;
   ctx.drawImage(img, 0,0);
   umbral = deslizador_r.value;
   for (let i = 0; i < data.length; i+=4) {
@@ -122,7 +125,6 @@ ctx.putImageData(imgData, 0, 0);
 }
 
 function green_thresh(){
-  range_value.innerHTML = deslizador_g.value;
   ctx.drawImage(img, 0,0);
   umbral = deslizador_g.value;
   for (let i = 0; i < data.length; i+=4) {
@@ -138,7 +140,7 @@ ctx.putImageData(imgData, 0, 0);
 
 
 function blue_thresh(){
-  range_value.innerHTML = deslizador_b.value;
+
   ctx.drawImage(img, 0,0);
   umbral = deslizador_b.value;
   for (let i = 0; i < data.length; i+=4) {
