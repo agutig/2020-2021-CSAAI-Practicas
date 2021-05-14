@@ -114,6 +114,7 @@ boton_colores.onclick = () => {
 
 function red_thresh(){
   ctx.drawImage(img, 0,0);
+  text_red.innerHTML = "Umbral R: " + deslizador_r.value;
   umbral = deslizador_r.value;
   for (let i = 0; i < data.length; i+=4) {
       if (data[i] > umbral){
@@ -125,6 +126,7 @@ ctx.putImageData(imgData, 0, 0);
 }
 
 function green_thresh(){
+  text_green.innerHTML = "Umbral G: " + deslizador_g.value;
   ctx.drawImage(img, 0,0);
   umbral = deslizador_g.value;
   for (let i = 0; i < data.length; i+=4) {
@@ -140,7 +142,7 @@ ctx.putImageData(imgData, 0, 0);
 
 
 function blue_thresh(){
-
+  text_blue.innerHTML = "Umbral B: " + deslizador_b.value;
   ctx.drawImage(img, 0,0);
   umbral = deslizador_b.value;
   for (let i = 0; i < data.length; i+=4) {
