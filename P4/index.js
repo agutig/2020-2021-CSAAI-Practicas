@@ -33,10 +33,10 @@ function gray_maker (){
 }
 
 function reset (){
-  for (let i = 0; i < data.length; i+=4) {
+
     data = original_colors.slice();
     ctx.putImageData(imgData, 0, 0);
-  }
+
 }
 
 boton_gris.onclick = () => {
@@ -71,7 +71,7 @@ boton_colores.onclick = () => {
   data = imgData.data;
   Estado_gris = 0;
   boton_gris.style.backgroundColor= "white";
-  console.log(colored[0]);
+  console.log("hey " + colored[0]);
   reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
@@ -103,7 +103,7 @@ deslizador_r.oninput = () => {
           }
   }
   colored = data.slice();
-  console.log(colored[0]);
+  console.log(colored);
   ctx.putImageData(imgData, 0, 0);
  }
 }
