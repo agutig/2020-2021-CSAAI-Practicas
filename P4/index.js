@@ -38,6 +38,23 @@ function reset (){
     ctx.putImageData(imgData, 0, 0);
 
 }
+function visible_elements(){
+  deslizador_r.style.display="block";
+  deslizador_g.style.display="block";
+  deslizador_b.style.display="block";
+  //text_red.style.display="block";
+  //text_green.style.display="block";
+  //text_blue.style.display="block";
+}
+
+function invisible_elements(){
+  deslizador_r.style.display="none";
+  deslizador_g.style.display="none";
+  deslizador_b.style.display="none";
+ // text_red.style.display="none";
+ // text_green.style.display="none";
+ // text_blue.style.display="none";
+}
 
 boton_gris.onclick = () => {
   ctx.drawImage(img, 0,0 );
@@ -74,6 +91,7 @@ boton_colores.onclick = () => {
   reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
+      visible_elements();
       red_thresh();
       green_thresh();
       blue_thresh();
