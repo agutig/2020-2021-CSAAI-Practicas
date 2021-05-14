@@ -71,7 +71,6 @@ boton_colores.onclick = () => {
   data = imgData.data;
   Estado_gris = 0;
   boton_gris.style.backgroundColor= "white";
-  console.log("hey " + colored[0]);
   reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
@@ -100,7 +99,6 @@ function red_thresh(){
        }
 }
 colored = data.slice();
-console.log(colored);
 ctx.putImageData(imgData, 0, 0);
 }
 
