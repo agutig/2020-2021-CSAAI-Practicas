@@ -10,8 +10,8 @@ const deslizador_r = document.getElementById('deslizador_r');
 const deslizador_g = document.getElementById('deslizador_g');
 const deslizador_b = document.getElementById('deslizador_b');
 let text_red = document.getElementById('range_value_red');
-//let text_green = document.getElementById('range_value_green');
-//let text_blue = document.getElementById('range_value_blue');
+let text_green = document.getElementById('range_value_green');
+let text_blue = document.getElementById('range_value_blue');
 
 img.onload = function () {
     canvas.width = img.width;
@@ -46,8 +46,8 @@ function visible_elements(){
   deslizador_g.style.display="block";
   deslizador_b.style.display="block";
   text_red.style.display="block";
-  //text_green.style.display="block";
-  //text_blue.style.display="block";
+  text_green.style.display="block";
+  text_blue.style.display="block";
 }
 
 function invisible_elements(){
@@ -56,7 +56,7 @@ function invisible_elements(){
   deslizador_b.style.display="none";
   text_red.style.display="none";
   text_green.style.display="none";
- // text_blue.style.display="none";
+  text_blue.style.display="none";
 }
 
 boton_gris.onclick = () => {
