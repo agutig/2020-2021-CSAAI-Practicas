@@ -100,6 +100,7 @@ boton_colores.onclick = () => {
     }
     else{
       boton_colores.style.backgroundColor= "white";
+      invisible_elements();
       data = original_colors.slice();
       ctx.putImageData(imgData, 0, 0);
       Estado_colores = 0;
