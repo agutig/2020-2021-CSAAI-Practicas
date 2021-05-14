@@ -10,13 +10,13 @@ const ctx = canvas.getContext('2d');
 img.onload = function () {
   ctx.drawImage(img, 0,0 );
 };
-ctx.drawImage(img, 0,0 );
+
 canvas.width = img.width;
 canvas.height = img.height;
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
 let data = imgData.data;
-console.log(data[0]);
+console.log(data);
 let Estado_gris = 0;
 const original_colors = data.slice();
 
