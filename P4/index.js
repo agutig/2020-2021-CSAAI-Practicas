@@ -21,8 +21,8 @@ img.onload = function () {
 
 let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 let data = imgData.data;
+let data_copy = data.slice()
 const original_colors = data.slice();
-let colored = data.slice();
 let Estado_gris = 0;
 let Estado_colores = 0;
 
@@ -95,9 +95,6 @@ boton_colores.onclick = () => {
   //reset;
     if (Estado_colores == 0){
       boton_colores.style.backgroundColor= "orange";
-        
-      imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      data = imgData.data
       data_copy = data.slice();
       visible_elements();
       red_thresh();
@@ -128,7 +125,6 @@ function red_thresh(){
         data[i] = data_copy[i];
      }
 }
-colored = data.slice();
 ctx.putImageData(imgData, 0, 0);
 }
 
@@ -145,7 +141,6 @@ function green_thresh(){
      }
   }
 
-colored = data.slice();
 ctx.putImageData(imgData, 0, 0);
 }
 
@@ -162,7 +157,6 @@ function blue_thresh(){
           data[i+2] = data_copy[i+2];
        }
   }
-  colored = data.slice();
 ctx.putImageData(imgData, 0, 0);
 }
 
