@@ -6,6 +6,7 @@ const btn_video1 = document.getElementById("btn_video1");
 const btn_video2 = document.getElementById("btn_video2");
 const btn_test = document.getElementById("btn_test");
 const btn_src_on = document.getElementById("btn_src_on");
+const btn_src_off = document.getElementById("btn_src_off");
 
 
 directo.width=420;
@@ -29,16 +30,26 @@ btn_src_on.onclick = () => {
 
   video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
   video1.currentTime = 0;
+  video1.muted = true;
   video1.play();
-  video1.muted;
+  
 
   video2.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente2.mp4";
   video2.currentTime = 0;
+  video2.muted = true;
   video2.play();
-  video2.muted;
+  
 
   directo.poster = TEST_IMAGE_URL;
   ESTADO = 1;
+};
+
+btn_src_off.onclick = () => {
+    video1.src="";
+    video2.src="";
+    directo.src="";
+    directo.poster = TEST_IMAGE_URL;
+    ESTADO = 0;
 };
 
 //-- Botón de Test

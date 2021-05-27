@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+    background-color:gray;
+    margin-top: 5%;
+}
+
+video{
+    border: solid 2px black;
+}
+
+#botones{
+    border: solid 2px black;
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+}
